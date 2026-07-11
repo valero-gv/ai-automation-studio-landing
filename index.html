@@ -175,12 +175,14 @@
           <p>На коротком разговоре определим, подходит ли поток для пилота и какие показатели стоит зафиксировать до старта.</p>
           <ul><li>Без обязательств</li><li>Без доступа к production на первом разговоре</li><li>Ответ — обычно в течение 2 рабочих дней</li></ul>
         </div>
-        <form class="contact-form reveal" id="contact-form">
+        <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/xykrgzwd" method="POST">
           <div class="field-row"><label>Имя<input required name="name" autocomplete="name" placeholder="Как к вам обращаться"></label><label>Рабочий email<input required type="email" name="email" autocomplete="email" placeholder="you@company.ru"></label></div>
           <label>Компания и роль<input name="company" autocomplete="organization" placeholder="Компания · должность"></label>
           <label>Какой процесс хотите разобрать?<textarea required name="process" rows="5" placeholder="Например: заявки приходят в Excel, оператор переносит позиции в 1С и вручную проверяет реквизиты..."></textarea></label>
-          <button class="button mint submit-button" type="submit">Сформировать письмо <span>→</span></button>
-          <p class="form-note">Форма откроет письмо в вашей почтовой программе. Данные не отправляются сторонним сервисам.</p>
+          <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Новая заявка с сайта AI Automation Studio">
+          <button class="button mint submit-button" type="submit">Отправить заявку <span>→</span></button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку указанных данных для ответа на обращение.</p>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>

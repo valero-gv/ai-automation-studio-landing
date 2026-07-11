@@ -26,16 +26,32 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 
 const form = document.querySelector('#contact-form');
 const status = form?.querySelector('.form-status');
+const submitButton = form?.querySelector('button[type="submit"]');
+const defaultButtonLabel = submitButton?.innerHTML;
 
-form?.addEventListener('submit', (event) => {
+form?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const data = new FormData(form);
-  const name = String(data.get('name') || '').trim();
-  const email = String(data.get('email') || '').trim();
-  const company = String(data.get('company') || '').trim();
-  const process = String(data.get('process') || '').trim();
-  const subject = encodeURIComponent(`Пилот AI Automation Studio — ${company || name}`);
-  const body = encodeURIComponent(`Здравствуйте!\n\nХочу обсудить процесс для пилота.\n\nИмя: ${name}\nEmail: ${email}\nКомпания / роль: ${company || '—'}\n\nПроцесс:\n${process}\n`);
-  status.textContent = 'Открываем письмо — останется только нажать «Отправить».';
-  window.location.href = `mailto:valeriugvschool@gmail.com?subject=${subject}&body=${body}`;
+  status.classList.remove('error');
+  status.textContent = '';
+  submitButton.disabled = true;
+  submitButton.textContent = 'Отправляем…';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
+
+    if (!response.ok) throw new Error('Form submission failed');
+
+    form.reset();
+    status.textContent = 'Спасибо! Заявка отправлена. Мы ответим в течение двух рабочих дней.';
+  } catch (error) {
+    status.classList.add('error');
+    status.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите на valeriugvschool@gmail.com.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = defaultButtonLabel;
+  }
 });
