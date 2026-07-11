@@ -28,10 +28,12 @@ const form = document.querySelector('#contact-form');
 const status = form?.querySelector('.form-status');
 const submitButton = form?.querySelector('button[type="submit"]');
 const defaultButtonLabel = submitButton?.innerHTML;
+let statusTimer;
 
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  status.classList.remove('error');
+  window.clearTimeout(statusTimer);
+  status.classList.remove('success', 'error');
   status.textContent = '';
   submitButton.disabled = true;
   submitButton.textContent = 'Отправляем…';
@@ -46,6 +48,7 @@ form?.addEventListener('submit', async (event) => {
     if (!response.ok) throw new Error('Form submission failed');
 
     form.reset();
+    status.classList.add('success');
     status.textContent = 'Спасибо! Заявка отправлена. Мы ответим в течение двух рабочих дней.';
   } catch (error) {
     status.classList.add('error');
@@ -53,5 +56,9 @@ form?.addEventListener('submit', async (event) => {
   } finally {
     submitButton.disabled = false;
     submitButton.innerHTML = defaultButtonLabel;
+    statusTimer = window.setTimeout(() => {
+      status.textContent = '';
+      status.classList.remove('success', 'error');
+    }, 7000);
   }
 });
