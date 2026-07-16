@@ -1,6 +1,6 @@
-# AI Automation Studio landing
+# PILOT 14 landing
 
-Статический лендинг AI Automation Studio. Сайт работает без сборщика и готов к публикации через GitHub Pages.
+Статический лендинг PILOT 14. Сайт работает без сборщика и публикуется через GitHub Pages на `https://pilot14.ru/`.
 
 ## Локальный запуск
 
