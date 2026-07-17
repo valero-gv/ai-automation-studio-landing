@@ -42,6 +42,9 @@
 .cases-note strong{font-size:17px}
 .cases-note p{margin:0;color:var(--muted);font-size:13px}
 .cases-note .button{white-space:nowrap}
+.case-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.button.outline{background:#fff;color:var(--navy);border:1px solid #bfd2d7}
+.button.outline span{color:#0b9f91}
 .pricing-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border:1px solid #cfe1e2;background:#fff}
 .pricing-strip>div{padding:25px 30px;border-right:1px solid #dbe8e8}
 .pricing-strip>div:last-child{border-right:0}
@@ -58,6 +61,7 @@
   .case-study,.case-study.reverse{grid-template-columns:1fr;gap:34px}
   .case-study.reverse .case-copy,.case-study.reverse .case-visual{order:initial}
   .cases-note{grid-template-columns:1fr}
+  .case-actions{justify-content:flex-start}
   .pricing-strip{grid-template-columns:1fr}
   .pricing-strip>div{border-right:0;border-bottom:1px solid #dbe8e8}
   .pricing-strip>div:last-child{border-bottom:0}

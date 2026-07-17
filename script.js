@@ -52,7 +52,7 @@ form?.addEventListener('submit', async (event) => {
     status.textContent = 'Спасибо! Заявка отправлена. Мы ответим в течение двух рабочих дней.';
   } catch (error) {
     status.classList.add('error');
-    status.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите на valeriugvschool@gmail.com.';
+    status.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите на sales@pilot14.ru.';
   } finally {
     submitButton.disabled = false;
     submitButton.innerHTML = defaultButtonLabel;
