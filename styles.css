@@ -90,7 +90,8 @@ h1 {
   line-height: .99;
   letter-spacing: -.055em;
 }
-.hero-lead { max-width: 650px; margin-bottom: 31px; color: #46504c; font-size: 20px; line-height: 1.5; }
+.hero-lead { max-width: 650px; margin-bottom: 13px; color: #46504c; font-size: 20px; line-height: 1.5; }
+.hero-entry { margin: 0 0 25px; color: var(--forest); font-size: 15px; font-weight: 650; }
 .hero-actions { display: flex; align-items: center; gap: 25px; margin-bottom: 49px; }
 .button {
   display: inline-flex;
